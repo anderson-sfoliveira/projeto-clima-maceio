@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: meu_postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: meu_usuario
+      POSTGRES_PASSWORD: minha_senha
+      POSTGRES_DB: meu_banco_de_dados
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    networks:
+      - minha_rede
+
+networks:
+  minha_rede:
+    driver: bridge
