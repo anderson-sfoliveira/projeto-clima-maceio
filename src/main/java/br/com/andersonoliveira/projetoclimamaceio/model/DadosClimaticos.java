@@ -38,4 +38,8 @@ public class DadosClimaticos {
     public static DadosClimaticos create(DadosClimaticosDTO dadosClimaticosDTO) {
         return new ModelMapper().map(dadosClimaticosDTO, DadosClimaticos.class);
     }
+
+    public static DadosClimaticosDTO toDTO(DadosClimaticos dadosClimaticos) {
+        return new ModelMapper().map(dadosClimaticos, DadosClimaticosDTO.class);
+    }
 }

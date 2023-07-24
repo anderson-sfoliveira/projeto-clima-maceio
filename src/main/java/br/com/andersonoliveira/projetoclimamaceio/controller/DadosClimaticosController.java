@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -20,7 +21,14 @@ public class DadosClimaticosController {
 
     @GetMapping
 //    @Operation(summary = "Find loan by params")
-    public ResponseEntity<List<DadosClimaticosDTO>> buscaDados() {
-        return ResponseEntity.ok(dadosClimaServiceImpl.buscarTodosDados());
+    public ResponseEntity<List<DadosClimaticosDTO>> buscarDadosPorIntervaloData(
+            @RequestParam LocalDate dataInicial, @RequestParam LocalDate dataFinal) {
+
+        if (dataInicial.isAfter(dataFinal)) {
+            throw new IllegalArgumentException("A data inicial não pode ser posterior à data final.");
+        }
+
+        List<DadosClimaticosDTO> dadosClimaticosDTOList = dadosClimaServiceImpl.buscarDadosPorIntervaloData(dataInicial, dataFinal);
+        return ResponseEntity.ok(dadosClimaticosDTOList);
     }
 }
