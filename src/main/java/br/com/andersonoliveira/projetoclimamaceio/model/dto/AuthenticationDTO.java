@@ -1,4 +1,7 @@
 package br.com.andersonoliveira.projetoclimamaceio.model.dto;
 
-public record AuthenticationDTO(String userName, String password) {
+import jakarta.validation.constraints.NotBlank;
+
+public record AuthenticationDTO(
+        @NotBlank String userName, @NotBlank String password) {
 }
