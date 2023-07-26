@@ -8,8 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-
 @Service
 @RequiredArgsConstructor
 public class ScheduleServiceImpl implements ScheduleService {
@@ -19,7 +17,6 @@ public class ScheduleServiceImpl implements ScheduleService {
 
     @Override
     @Scheduled(cron = "${cron.expression}")
-//    @EventListener(ApplicationReadyEvent.class)
     public void buscarDadosClimaticos() {
         DadosClimaticosDTO dadosClimaticosDTO = climaApiClient.obterDadosClima();
         dadosClimaServiceImpl.salvar(DadosClimaticos.create(dadosClimaticosDTO));
