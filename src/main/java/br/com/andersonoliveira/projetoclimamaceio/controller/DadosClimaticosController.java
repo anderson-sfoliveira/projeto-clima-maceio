@@ -1,7 +1,5 @@
 package br.com.andersonoliveira.projetoclimamaceio.controller;
 
-
-import br.com.andersonoliveira.projetoclimamaceio.client.ClimaApiClient;
 import br.com.andersonoliveira.projetoclimamaceio.model.dto.DadosClimaticosDTO;
 import br.com.andersonoliveira.projetoclimamaceio.service.impl.DadosClimaticosServiceImpl;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +15,6 @@ import java.util.List;
 public class DadosClimaticosController {
 
     private final DadosClimaticosServiceImpl dadosClimaServiceImpl;
-    private final ClimaApiClient climaApiClient;
 
     @GetMapping
 //    @Operation(summary = "Find loan by params")

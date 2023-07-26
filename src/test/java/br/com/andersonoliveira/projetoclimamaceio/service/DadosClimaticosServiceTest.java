@@ -60,7 +60,7 @@ public class DadosClimaticosServiceTest {
     }
 
     @Test
-    void naoDeveChamaroRepositoryCasoParametroDataInicialNulo() {
+    public void naoDeveChamaroRepositoryCasoParametroDataInicialNulo() {
         final DadosClimaticosException e = assertThrows(DadosClimaticosException.class, () -> {
             service.buscarDadosPorIntervaloData(null, LocalDate.of(2023, 7, 10));
         });
