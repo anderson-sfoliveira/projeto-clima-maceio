@@ -2,6 +2,8 @@ package br.com.andersonoliveira.projetoclimamaceio;
 
 import br.com.andersonoliveira.projetoclimamaceio.model.User;
 import br.com.andersonoliveira.projetoclimamaceio.repository.UserRepository;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,6 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
+@OpenAPIDefinition(info = @Info(title = "Clima em Maceió, Alagoas", version = "1", description = "Projeto para consulta e registro dos dados do clima de Maceió, Alagoas"))
 @EnableScheduling
 public class ProjetoClimaMaceioApplication {
 

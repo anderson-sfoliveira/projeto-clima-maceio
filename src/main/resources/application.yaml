@@ -1,0 +1,25 @@
+cron:
+  expression: 0/600 * * * * *
+
+hgbrasil:
+  key: ${HGBRASIL_KEY:d37edd66}
+
+security:
+  jwt:
+    secret-key: ${JWT_SECRET:chave_jwt}
+
+spring:
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/meu_banco_de_dados}
+    username: ${DATASOURCE_USERNAME:meu_usuario}
+    password: ${DATASOURCE_PASSWORD:minha_senha}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
